@@ -15,13 +15,11 @@ android {
         targetSdkVersion 33
         versionCode 100
         versionName "1.1.0"
-        if(project.hasProperty("RETRO_DISABLE_PLUS"))
-            autobuildFlag = true
         if(project.hasProperty("RETRO_REVISION"))
             retroRevision = project.property("RETRO_REVISION")
         externalNativeBuild {
             cmake {
-                arguments = ["-DANDROID_STL=c++_shared", "-DPLATFORM=Android", "-DRETRO_DISABLE_PLUS=$autobuildFlag", "-DRETRO_REVISION=$retroRevision"]
+                arguments = ["-DANDROID_STL=c++_shared", "-DPLATFORM=Android", "-DRETRO_REVISION=$retroRevision"]
             }
         }
         ndk {
